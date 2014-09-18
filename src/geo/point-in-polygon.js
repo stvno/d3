@@ -5,6 +5,7 @@ import "../math/abs";
 import "../math/trigonometry";
 
 function d3_geo_pointInPolygon(point, polygon) {
+  if(d3.geo.area(polygon) ==0 ) return false; //a point cannot be in a zero sized polygon
   var meridian = point[0],
       parallel = point[1],
       meridianNormal = [Math.sin(meridian), -Math.cos(meridian), 0],
